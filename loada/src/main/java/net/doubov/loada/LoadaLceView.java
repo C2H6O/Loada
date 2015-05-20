@@ -1,6 +1,6 @@
 package net.doubov.loada;
 
-public interface LceView<M> {
+public interface LoadaLceView<M> {
 
     void showLoading();
 

@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.TextView;
 
-public abstract class LceFragment<CV extends View, M> extends Fragment implements LceView<M> {
+public abstract class LoadaLceFragment<CV extends View, M> extends LoadaBaseFragment implements LoadaLceView<M> {
     protected View mLoadingView;
     protected CV mContentView;
     protected TextView mErrorView;
@@ -58,17 +58,17 @@ public abstract class LceFragment<CV extends View, M> extends Fragment implement
 
     @Override
     public void showLoading() {
-        LceAnimator.showLoading(mLoadingView, mContentView, mErrorView);
+        LoadaLceAnimator.showLoading(mLoadingView, mContentView, mErrorView);
     }
     @Override
     public void showContent() {
-        LceAnimator.showContent(mAnimateChanges, mLoadingView, mContentView, mErrorView);
+        LoadaLceAnimator.showContent(mAnimateChanges, mLoadingView, mContentView, mErrorView);
     }
 
     @Override
     public void showError(String message) {
         mErrorView.setText(message);
-        LceAnimator.showErrorView(mAnimateChanges, mLoadingView, mContentView, mErrorView);
+        LoadaLceAnimator.showErrorView(mAnimateChanges, mLoadingView, mContentView, mErrorView);
     }
 
 }

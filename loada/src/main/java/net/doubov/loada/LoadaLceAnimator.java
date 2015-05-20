@@ -34,7 +34,7 @@ import android.widget.TextView;
  * @author Hannes Dorfmann
  * @since 1.0.0
  */
-public class LceAnimator {
+public class LoadaLceAnimator {
 
     /**
      * Show the loading view. No animations, because sometimes loading things is pretty fast (i.e.
