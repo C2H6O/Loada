@@ -9,7 +9,7 @@ versionProp.load(project.rootProject.file("gradle.properties").newDataInputStrea
 minorVersion = versionProp.getProperty("minorVersion")
 
 // This is the library version used when deploying the artifact
-version = versionProp.getProperty("version") + minorVersion
+version = new StringBuilder().append(versionProp.getProperty("version")).append(minorVersion).toString()
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Loada'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
