@@ -9,7 +9,7 @@ versionProp.load(project.rootProject.file("gradle.properties").newDataInputStrea
 minorVersion = versionProp.getProperty("minorVersion")
 
 // This is the library version used when deploying the artifact
-version = new StringBuilder().append(versionProp.getProperty("version")).append(minorVersion).toString()
+version = versionProp.getProperty("version") + minorVersion
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Loada'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
@@ -124,7 +124,7 @@ task findConventions << {
 //versionWrite.store(project.rootProject.project("loada").file('bintray.properties').newDataOutputStream(), "version")
 
 task increment << {
-    versionProp.put("minorVersion", String.valueOf(++Integer.getInteger(minorVersion)))
+    versionProp.put("minorVersion", ++minorVersion)
     versionProp.store(project.rootProject.file('gradle.properties').newDataOutputStream(), "version comment")
 }
 
