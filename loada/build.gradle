@@ -3,9 +3,13 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.github.dcendents.android-maven'
 
+Properties versionProp = new Properties()
+versionProp.load(project.rootProject.file("gradle.properties").newDataInputStream())
+
+minorVersion = versionProp.getProperty("minorVersion")
 
 // This is the library version used when deploying the artifact
-version = "1.0.4"
+version = versionProp.getProperty("version") + minorVersion
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Loada'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library
@@ -114,6 +118,16 @@ artifacts {
 task findConventions << {
     println project.getConvention()
 }
+//
+//Properties versionWrite = new Properties()
+//versionWrite.store(project.rootProject.project("loada").file('bintray.properties').newDataOutputStream(), "version")
+
+task increment << {
+    versionProp.put("minorVersion", ++minorVersion)
+    versionProp.store(project.rootProject.file('gradle.properties').newDataOutputStream(), "version comment")
+}
+
+increment.shouldRunAfter bintrayUpload
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())

@@ -75,7 +75,7 @@ public abstract class LoadaLceFragment<CV extends View, M> extends LoadaBaseFrag
         return mViewState;
     }
 
-    private enum ViewState {
+    protected enum ViewState {
         LOADING,
         CONTENT,
         ERROR
