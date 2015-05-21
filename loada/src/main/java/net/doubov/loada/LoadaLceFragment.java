@@ -52,9 +52,8 @@ public abstract class LoadaLceFragment<CV extends View, M> extends LoadaBaseFrag
 
         if (savedInstanceState != null) {
             mViewState = (ViewState) savedInstanceState.getSerializable(STATE_VIEW_STATE);
-            restoreViewState(mViewState);
         }
-
+        restoreViewState(mViewState);
         onLceViewsCreated();
     }
 
