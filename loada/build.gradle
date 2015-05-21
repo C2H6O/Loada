@@ -5,7 +5,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 
 // This is the library version used when deploying the artifact
-version = "1.0.0"
+version = "1.0.1"
 group = "net.doubov"                                        // Maven Group ID for the artifact
 def repoName = 'Loada'
 def siteUrl = 'https://github.com/C2H6O/' + repoName      // Homepage URL of the library

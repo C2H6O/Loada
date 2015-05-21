@@ -6,6 +6,8 @@ public interface LoadaLceView<M> {
 
     void showContent();
 
+    void showError();
+
     void showError(String message);
 
     void setData(M data);

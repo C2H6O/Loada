@@ -66,9 +66,14 @@ public abstract class LoadaLceFragment<CV extends View, M> extends LoadaBaseFrag
     }
 
     @Override
+    public void showError() {
+        LoadaLceAnimator.showErrorView(mAnimateChanges, mLoadingView, mContentView, mErrorView);
+    }
+
+    @Override
     public void showError(String message) {
         mErrorView.setText(message);
-        LoadaLceAnimator.showErrorView(mAnimateChanges, mLoadingView, mContentView, mErrorView);
+        showError();
     }
 
 }
