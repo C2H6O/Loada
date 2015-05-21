@@ -123,7 +123,7 @@ task findConventions << {
 //versionWrite.store(project.rootProject.project("loada").file('bintray.properties').newDataOutputStream(), "version")
 
 task increment << {
-    versionProp.put("minorVersion", ++minorVersion)
+    versionProp.put("minorVersion", String.valueOf(++Integer.getInteger(minorVersion)))
     versionProp.store(project.rootProject.file('gradle.properties').newDataOutputStream(), "version comment")
 }
 
