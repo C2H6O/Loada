@@ -124,11 +124,11 @@ task findConventions << {
 //versionWrite.store(project.rootProject.project("loada").file('bintray.properties').newDataOutputStream(), "version")
 
 task upload << {
+    bintrayUpload
     versionProp.put("minorVersion", ++minorVersion)
     versionProp.store(project.rootProject.file('gradle.properties').newDataOutputStream(), "version comment")
 }
 
-upload.shouldRunAfter bintrayUpload
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())

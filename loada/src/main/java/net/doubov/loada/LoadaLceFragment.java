@@ -92,6 +92,14 @@ public abstract class LoadaLceFragment<CV extends View, M> extends LoadaBaseFrag
 
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mLoadingView = null;
+        mContentView = null;
+        mErrorView = null;
+    }
+
     protected abstract void onErrorViewClicked();
 
     protected void setAnimateChanges(boolean animateChanges) {
