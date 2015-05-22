@@ -128,7 +128,7 @@ task upload << {
     versionProp.store(project.rootProject.file('gradle.properties').newDataOutputStream(), "version comment")
 }
 
-increment.shouldRunAfter bintrayUpload
+upload.shouldRunAfter bintrayUpload
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())

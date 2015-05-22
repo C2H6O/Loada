@@ -26,6 +26,12 @@ public class LoadaBaseFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
+
     protected void injectDependencies(Context context) {
 
     }
